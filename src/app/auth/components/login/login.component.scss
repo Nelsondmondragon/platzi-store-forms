@@ -1,6 +1,7 @@
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 
-$primary: mat-palette($mat-indigo);
+$primary: mat.define-palette(mat.$indigo-palette);
 
 :host {
   height: 100vh;
