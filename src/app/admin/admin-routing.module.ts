@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { NavComponent } from './components/nav/nav.component';
-
+import { BasicFormsComponent } from './components/basic-forms/basic-forms.component';
 
 const routes: Routes = [
   {
@@ -11,22 +11,31 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () =>
+          import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
         path: 'products',
-        loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+        loadChildren: () =>
+          import('./products/products.module').then((m) => m.ProductsModule),
       },
       {
         path: 'categories',
-        loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule)
+        loadChildren: () =>
+          import('./categories/categories.module').then(
+            (m) => m.CategoriesModule
+          ),
       },
-    ]
-  }
+      {
+        path: 'basic',
+        component: BasicFormsComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}
